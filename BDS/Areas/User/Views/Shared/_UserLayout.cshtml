@@ -1,0 +1,276 @@
+﻿<!--
+Au<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="shortcut icon" href="~/Areas/User/Content/images/logo1_r65_icon.ico">
+    <title>JK Bất Động Sản | Trang tìm kiếm Bất Động Sản tốt nhất Việt Nam</title>
+    <link href="~/Areas/User/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="~/Areas/User/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="JK Bất Động Sản | Trang tìm kiếm Bất Động Sản tốt nhất Việt Nam" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:400,900italic,900,800italic,800,700italic,700,600italic,600,500italic,500,400italic,300italic,300,200italic,200' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="~/Areas/User/Content/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Areas/User/Content/js/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
+    <!---- start-smoth-scrolling---->
+    <script type="text/javascript" src="~/Areas/User/Content/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Areas/User/Content/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1200);
+            });
+        });
+    </script>
+    <!---End-smoth-scrolling---->
+    <link rel="stylesheet" href="~/Areas/User/Content/css/swipebox.css">
+    <script src="~/Areas/User/Content/js/jquery.swipebox.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $(".swipebox").swipebox();
+        });
+    </script>
+
+    <!--Slider-->
+
+    <link href=" ~/Areas/User/Content/slider/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href=" ~/Areas/User/Content/slider/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src=" ~/Areas/User/Content/slider/js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src=" ~/Areas/User/Content/slider/js/jquery.nivo.slider.js"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider();
+        });
+    </script>
+
+    <style>
+        .search {
+            border-radius: 30px;
+        }
+
+        .button, .button1 {
+            border-radius: 30px;
+        }
+
+
+
+
+    </style>
+
+    <!--Map-->
+    <style>
+        #map {
+            width: 100%;
+            height: 400px;
+            background-color: grey;
+        }
+    </style>
+    <!--Login-->
+
+
+
+
+
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="top-menu">
+                    <span class="menu"><img src="~/Areas/User/Content/images/nav.png" alt="" /> </span>
+                        <ul>
+                            <li><a href="/User/User/Index" class="active">trang chủ</a></li>
+                            <li><a href="/User/User/NhanVien">giới thiệu</a></li>
+                            <li><a href="/User/BatDongSan/BatDongSan">dịch vụ</a> </li>
+                            <li><a href="/User/BatDongSan/Create">đăng tin</a></li>
+                            <li><a href="/User/User/LienHe">liên hệ</a></li>
+                            <li style="border:solid 1px;"><a href="/User/DatThue/DatThue">Đặt Thuê @Html.Action("SLDaDat", "DatThue")</a></li>
+                        </ul>
+                        <!-- script for menu -->
+
+                        <script>
+                            $("span.menu").click(function () {
+                                $(".top-menu ul").slideToggle("slow", function () {
+                                });
+                            });
+                        </script>
+                        <!-- //script for menu -->
+
+                </div>
+                <div class="buttons">
+                    @if (Session["UserName"] != null)
+    {
+                    <a href="/User/User/Account" class="button">
+                       Hi, @Session["HoTen"].ToString()
+                    </a>
+}
+
+else
+{
+                <a href="/User/User/Login" class="button">đăng nhập</a>
+
+}
+                    @if (Session["UserName"] != null)
+    {
+                <a href="/User/User/Logout" class="button">Thoát</a>
+}
+
+else
+{<a href="/User/User/Create" class="button">đăng ký</a>}
+
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="header-bottom">
+                <div class="logo">
+                    <a href="/User/User/Index">
+                        <img src="~/Areas/User/Content/images/logo1.png" alt=" Công ty Bất Động Sản Việt Nam"/>
+                    </a>
+                </div>
+                <div class="search">
+                    @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                        {
+                        <form>
+                            @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @style = "width:200px;", @placeholder = "tìm kiếm..." })
+                            <input type="submit" value="">
+                        </form>
+                        }
+                   
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+            <div class="slider">
+                <div class="slider-wrapper theme-default">
+                    <div id="slider" class="nivoSlider">
+                        <img src=" ~/Areas/User/Content/slider/images/nicehouse.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+    <div class="content">
+        <div class="join">
+            <div class="container">
+                <div class="col-md-2 join-grid">
+                    <a class="button" href="/User/User/Create">đăng ký</a>
+                </div>
+                <div class="col-md-10 join-grid1">
+                    <p>Và trở thành khách hàng thân thiết của chúng tôi</p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="services-section">
+            <div class="container">
+                @*<h3>dịch vụ</h3>*@
+                <div class="services-grids">
+                    <div class="col-md-3 services-grid">
+                        <a href="/User/User/Index" class="button4"> <h4>Resort, Villa</h4></a>
+                        <p></p>
+                    </div>
+                    <div class="col-md-3 services-grid">
+                        <a href="/User/Apartment/Index" class="button4"><h4>Căn hộ</h4></a>
+                        <p></p>
+                    </div>
+                    <div class="col-md-3 services-grid">
+                        <a href="/User/Land/Index" class="button4"><h4>Đất</h4></a>
+                        <p></p>
+                    </div>
+                    <div class="col-md-3 services-grid">
+                        <a href="/User/MBKD/Index" class="button4"><h4>MB Kinh Doanh</h4></a>
+                        <p></p>
+                    </div>
+                    <div class="col-md-3 services-grid">
+                        <a href="/User/MBVP/Index" class="button4"><h4>MB Văn Phòng</h4></a>
+                        <p></p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="Features-section">
+            <div class="container">
+                    @RenderBody()   
+            </div>
+
+        <div class="Resources-section">
+            <div class="container">
+                <div class="col-md-6 Resources">
+                    <h3>Giới thiệu</h3>
+                    <p>
+                        JK – là công ty chuyên cung cấp các dịch vụ bất động sản chuyên nghiệp ở Việt Nam. Chúng tôi tập trung vào bất động sản tại các thành phố và khu vực ở Việt Nam.
+                        Cho dù bạn quan tâm đến việc mua, bán, cho thuê, dịch vụ tư vấn, đầu tư hoặc bất cứ việc gì khác liên quan đến bất động sản và thị trường bất động sản ở Việt Nam– hãy liên hệ với chúng tôi!
+                    </p>
+                </div>
+
+                <div class="col-md-6 Resources1">
+                    <h3>Văn phòng</h3>
+                    <ul>
+                        <li>Địa chỉ: 9 Nguyễn Trãi</li>
+                        <li>Thanh Xuân</li>
+                        <li>TP. Hà Nội</li>
+                        <li>Việt Nam</li>
+                        <li>Mobile: 0372073714 </li>
+                        <li>Giá bán bằng đồng USD chỉ nhằm mục đích định hướng và tất cả các giao dịch được quy ra bằng đồng Việt Nam theo Luật Việt Nam </li>
+                    </ul>
+                </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+    </div>
+    <div class="footer-section">
+        <div class="container">
+            <div class="footer-top">
+                <p> <a href="/Admin/Login/Index" target="_blank">Phan Tuấn Anh. FB:</a> <a href="https://www.facebook.com/jaemjn.kjm" target="_blank">Jaemjn</a></p>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    /*
+                    var defaults = {
+                            containerID: 'toTop', // fading element id
+                        containerHoverID: 'toTopHover', // fading element hover id
+                        scrollSpeed: 1200,
+                        easingType: 'linear'
+                        };
+                    */
+
+                    $().UItoTop({ easingType: 'easeOutQuart' });
+
+                });
+            </script>
+            <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+
+        </div>
+    </div>
+
+
+</body>
+</html>
